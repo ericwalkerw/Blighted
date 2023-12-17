@@ -11,20 +11,12 @@ cc.Class({
     _waypoints: cc.Node,
   },
 
-  onLoad() {
-    Emitter.instance.registerEvent(
-      Key.GET_POINTS,
-      ((waypoints) => {
-        this.getPoints(waypoints);
-      }).bind(this)
-    );
-  },
-
   start() {
+    Emitter.instance.emit(Key.GET_POINTS, this);
     this._target = this._waypoints[0];
     this.moveToTarget();
   },
-  
+
   getPoints(points) {
     this._waypoints = points;
   },
