@@ -6,30 +6,45 @@ cc.Class({
     startPoint: cc.Node,
     cooldownWaveUI: cc.Label,
     waveDuration: 6,
-    waveNumber: 1,
+    waveIndex: 1,
+    waveNumber: 10,
   },
 
   onLoad() {
     this.spawnWave();
-      this.schedule(() => {
+    this.schedule(
+      () => {
         this.spawnWave();
-      }, this.waveDuration, 2, 0);
+      },
+      this.waveDuration,
+      this.waveNumber,
+      0
+    );
   },
 
   spawnWave() {
     this.cooldownWave();
-    for (let i = 0; i < this.waveNumber; i++) {
+    for (let i = 0; i < this.waveIndex; i++) {
       this.scheduleOnce(() => {
         this.spawnEnemy();
       }, i * 1);
     }
-    this.waveNumber++;
+    this.waveIndex++;
   },
 
   spawnEnemy() {
     let newEnemy = cc.instantiate(this.enemyPrefab);
     newEnemy.parent = this.startPoint;
-    newEnemy.position = this.startPoint.children[0].position;
+
+    let randomRadius = 25;
+    let randomAngle = Math.random() * 2 * Math.PI;
+    let offsetX = randomRadius * Math.cos(randomAngle);
+    let offsetY = randomRadius * Math.sin(randomAngle);
+
+    let spawnPosition = this.startPoint.children[0].position.add(
+      cc.v2(offsetX, offsetY)
+    );
+    newEnemy.position = spawnPosition;
   },
 
   cooldownWave() {

@@ -4,7 +4,8 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    speed: 200,
+    mSpeed: 20,
+    mDamage: 30,
   },
 
   onLoad() {
@@ -14,7 +15,7 @@ cc.Class({
 
   applyForce() {
     this.schedule(() => {
-      this.node.x -= this.speed;
+      this.node.x -= this.mSpeed;
     }, 0);
   },
 });

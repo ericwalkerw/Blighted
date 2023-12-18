@@ -12,7 +12,6 @@ cc.Class({
   },
 
   onLoad() {
-    Emitter.instance.registerEvent(Key.TURRET_FIRE, this.shooting.bind(this));
   },
 
   shooting() {

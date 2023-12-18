@@ -1,5 +1,5 @@
-const Emitter = require('EventEmitter');
-const Key = require('Key');
+const Emitter = require("EventEmitter");
+const Key = require("Key");
 
 cc.Class({
   extends: cc.Component,
@@ -9,7 +9,7 @@ cc.Class({
     pivot: cc.Node,
     range: 15,
     graphics: cc.Graphics,
-    collider:cc.Collider,
+    collider: cc.Collider,
   },
 
   onLoad() {
@@ -23,7 +23,7 @@ cc.Class({
     this._target = other.node;
   },
 
-  onCollisionStay(other) {
+  onCollisionStay(other, self) {
     const distanceToCurrent = this._target
       ? this.node.position.sub(this._target.position).mag()
       : Infinity;
@@ -34,7 +34,7 @@ cc.Class({
     }
     this.lookAtTarget();
     this.drawConnectionLine();
-    Emitter.instance.emit(Key.TURRET_FIRE);
+    self.node.getComponent("Shooting").shooting();
   },
 
   onCollisionExit() {

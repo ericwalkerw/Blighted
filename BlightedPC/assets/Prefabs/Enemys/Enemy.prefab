@@ -32,10 +32,13 @@
       },
       {
         "__id__": 7
+      },
+      {
+        "__id__": 8
       }
     ],
     "_prefab": {
-      "__id__": 8
+      "__id__": 9
     },
     "_opacity": 255,
     "_color": {
@@ -190,10 +193,38 @@
       "__id__": 1
     },
     "_enabled": true,
-    "speed": 50,
+    "mSpeed": 60,
+    "mHealth": 60,
+    "_id": ""
+  },
+  {
+    "__type__": "0f8c4o6dtdAQq1k3Dmeb30T",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "enemyStat": {
+      "__id__": 5
+    },
     "_wavepointIndex": 0,
     "_target": null,
     "_waypoints": null,
+    "_id": ""
+  },
+  {
+    "__type__": "f29868xDFVPL5aDRz4/uzts",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "enemyStat": {
+      "__id__": 5
+    },
+    "_currentHealth": 0,
     "_id": ""
   },
   {
@@ -210,18 +241,7 @@
       "x": 0,
       "y": 0
     },
-    "_radius": 20,
-    "_id": ""
-  },
-  {
-    "__type__": "62e56N8be1EZrQAkKR6NCCl",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "enemy": true,
+    "_radius": 12,
     "_id": ""
   },
   {

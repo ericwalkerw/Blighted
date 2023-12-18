@@ -5,51 +5,7 @@ cc.Class({
   extends: cc.Component,
 
   properties: {
-    speed: 10,
-    _wavepointIndex: 0,
-    _target: cc.Node,
-    _waypoints: cc.Node,
+    mSpeed: 50,
+    mHealth: 60,
   },
-
-  start() {
-    const manager = cc.director.getCollisionManager();
-    manager.enabled = true;
-    Emitter.instance.emit(Key.GET_POINTS, this);
-    this._target = this._waypoints[0];
-    this.moveToTarget();
-  },
-
-  getPoints(points) {
-    this._waypoints = points;
-  },
-
-  moveToTarget() {
-    const distance = this.node.position.sub(this._target.position).mag();
-    const duration = distance / this.speed;
-
-    cc.tween(this.node)
-      .to(duration, { position: this._target.position })
-      .call(() => {
-        this.getNextPoint();
-      })
-      .start();
-  },
-
-  getNextPoint() {
-    if (this._wavepointIndex >= this._waypoints.length - 1) {
-      this.node.destroy();
-      return;
-    }
-
-    this._wavepointIndex++;
-    this._target = this._waypoints[this._wavepointIndex];
-    this.moveToTarget();
-  },
-
-  onCollisionEnter(other){
-    if(other.tag === "bullet"){
-      cc.log(other);
-      other.destroy();
-    }
-  }
 });
