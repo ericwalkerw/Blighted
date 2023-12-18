@@ -12,6 +12,8 @@ cc.Class({
   },
 
   start() {
+    const manager = cc.director.getCollisionManager();
+    manager.enabled = true;
     Emitter.instance.emit(Key.GET_POINTS, this);
     this._target = this._waypoints[0];
     this.moveToTarget();
@@ -43,4 +45,11 @@ cc.Class({
     this._target = this._waypoints[this._wavepointIndex];
     this.moveToTarget();
   },
+
+  onCollisionEnter(other){
+    if(other.tag === "bullet"){
+      cc.log(other);
+      other.destroy();
+    }
+  }
 });

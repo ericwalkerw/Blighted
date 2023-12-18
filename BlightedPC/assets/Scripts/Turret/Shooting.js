@@ -28,5 +28,6 @@ cc.Class({
   shoot() {
     const newBullet = cc.instantiate(this.bulletPrefab);
     newBullet.parent = this.firePoint;
+    newBullet.position = this.firePoint.position;
   },
 });

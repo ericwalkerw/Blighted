@@ -29,10 +29,13 @@
       },
       {
         "__id__": 6
+      },
+      {
+        "__id__": 7
       }
     ],
     "_prefab": {
-      "__id__": 7
+      "__id__": 8
     },
     "_opacity": 255,
     "_color": {
@@ -207,7 +210,18 @@
       "x": 0,
       "y": 0
     },
-    "_radius": 12,
+    "_radius": 20,
+    "_id": ""
+  },
+  {
+    "__type__": "62e56N8be1EZrQAkKR6NCCl",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "enemy": true,
     "_id": ""
   },
   {
